@@ -54,7 +54,14 @@ read -p "ok? (y/N): " yn
 case "$yn" in [yY]*) ;; *) echo "abort." ; exit ;; esac
 curl -s -L https://github.com/derailed/k9s/releases/download/v0.25.18/k9s_Linux_x86_64.tar.gz -o k9s && tar -xvf k9s && chmod 755 k9s && rm LICENSE README.md  && sudo mv k9s /usr/local/bin
 
+# minikube install
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+rm -rf minikube-linux-amd64 
 
 sudo gpasswd -a $(whoami) docker
 sudo chgrp docker /var/run/docker.sock
 sudo service docker restart
+
+echo source <(kubectl completion bash) >> ~/.bashrc
+source ~/.bashrc
