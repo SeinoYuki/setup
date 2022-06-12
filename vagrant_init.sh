@@ -9,3 +9,4 @@ echo export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS=\"1\" >> ~/.bashrc
 echo export PATH=\"\$PATH:/mnt/c/Program Files/Oracle/VirtualBox\" >> ~/.bashrc
 source ~/.bashrc
 vagrant plugin install vagrant-vbguest --plugin-version 0.21
+vagrant plugin install virtualbox_WSL2
